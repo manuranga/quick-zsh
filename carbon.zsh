@@ -171,3 +171,19 @@ alias mpatchcarbon='m && patchcarbon'
 
 compctl -K carbon_cmpl patchcarbon
 compctl -K carbon_cmpl mpatchcarbon
+
+
+
+
+
+
+eidt_carbon_files(){
+    case "$1" in
+        axis2.xml) vi "./repository/conf/axis2/axis2.xml" ;;
+        *)         vi "./repository/conf/$1" ;;
+    esac
+}
+
+compctl -k "(axis2.xml loadbalancer.conf log4j.properties carbon.xml synapse.properties)" eidt_carbon_files
+
+alias vic='eidt_carbon_files'
